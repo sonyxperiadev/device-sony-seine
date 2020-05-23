@@ -1,0 +1,137 @@
+# Copyright 2014 The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+on charger
+    # Disable thermal
+    write /sys/module/msm_thermal/core_control/enabled 0
+
+    # Bring CPUs online
+    write /sys/devices/system/cpu/cpu1/online 1
+    write /sys/devices/system/cpu/cpu2/online 1
+    write /sys/devices/system/cpu/cpu3/online 1
+    write /sys/devices/system/cpu/cpu4/online 1
+    write /sys/devices/system/cpu/cpu5/online 1
+    write /sys/devices/system/cpu/cpu6/online 1
+    write /sys/devices/system/cpu/cpu7/online 1
+
+    # Configure governor settings for little cluster
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "powersave"
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 300000
+
+    # Configure governor settings for big cluster
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor "powersave"
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 300000
+
+    # Bring CPUs offline
+    write /sys/devices/system/cpu/cpu1/online 0
+    write /sys/devices/system/cpu/cpu2/online 0
+    write /sys/devices/system/cpu/cpu3/online 0
+    write /sys/devices/system/cpu/cpu4/online 0
+    write /sys/devices/system/cpu/cpu5/online 0
+    write /sys/devices/system/cpu/cpu6/online 0
+    write /sys/devices/system/cpu/cpu7/online 0
+
+    # Enable thermal
+    write /sys/module/msm_thermal/core_control/enabled 1
+
+on boot
+    # Setting b.L scheduler parameters
+    write /proc/sys/kernel/sched_downmigrate 67
+    write /proc/sys/kernel/sched_upmigrate 77
+    write /proc/sys/kernel/sched_group_downmigrate 85
+    write /proc/sys/kernel/sched_group_upmigrate 100
+
+    # sched_load_boost as -6 is equivalent to target load as 85. It is per cpu tunable.
+    write /sys/devices/system/cpu/cpu0/sched_load_boost -6
+    write /sys/devices/system/cpu/cpu1/sched_load_boost -6
+    write /sys/devices/system/cpu/cpu2/sched_load_boost -6
+    write /sys/devices/system/cpu/cpu3/sched_load_boost -6
+    write /sys/devices/system/cpu/cpu4/sched_load_boost -6
+    write /sys/devices/system/cpu/cpu5/sched_load_boost -6
+    write /sys/devices/system/cpu/cpu6/sched_load_boost -6
+    write /sys/devices/system/cpu/cpu7/sched_load_boost -6
+    write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/hispeed_load 85
+    write /sys/devices/system/cpu/cpu4/cpufreq/schedutil/hispeed_load 85
+
+    # Disable thermal
+    write /sys/module/msm_thermal/core_control/enabled 0
+
+    # configure governor settings for little cluster
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "schedutil"
+    write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/up_rate_limit_us 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/down_rate_limit_us 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/hispeed_freq 1305600
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 614400
+
+    # configure governor settings for big cluster
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor "schedutil"
+    write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/up_rate_limit_us 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/down_rate_limit_us 0
+    write /sys/devices/system/cpu/cpu4/cpufreq/schedutil/hispeed_freq 1401600
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 1056000
+
+    # re-enable thermal
+    write /sys/module/msm_thermal/core_control/enabled 1
+
+    # Bring up all cores online
+    write /sys/devices/system/cpu/cpu1/online 1
+    write /sys/devices/system/cpu/cpu2/online 1
+    write /sys/devices/system/cpu/cpu3/online 1
+    write /sys/devices/system/cpu/cpu4/online 1
+    write /sys/devices/system/cpu/cpu5/online 1
+    write /sys/devices/system/cpu/cpu6/online 1
+    write /sys/devices/system/cpu/cpu7/online 1
+
+    # enable LPM
+    write /sys/module/lpm_levels/parameters/sleep_disabled 0
+
+    # Enable Low power modes
+    write /sys/module/lpm_levels/system/perf/cpu0/ret/idle_enabled N
+    write /sys/module/lpm_levels/system/perf/cpu1/ret/idle_enabled N
+    write /sys/module/lpm_levels/system/perf/cpu2/ret/idle_enabled N
+    write /sys/module/lpm_levels/system/perf/cpu3/ret/idle_enabled N
+    write /sys/module/lpm_levels/system/pwr/cpu4/ret/idle_enabled N
+    write /sys/module/lpm_levels/system/pwr/cpu5/ret/idle_enabled N
+    write /sys/module/lpm_levels/system/pwr/cpu6/ret/idle_enabled N
+    write /sys/module/lpm_levels/system/pwr/cpu7/ret/idle_enabled N
+    write /sys/module/lpm_levels/system/pwr/pwr-l2-dynret/idle_enabled N
+    write /sys/module/lpm_levels/system/perf/perf-l2-dynret/idle_enabled N
+
+    # set cpu_boost parameters
+    # Enable accounting on CPUs hwmon and bus speed decision algos
+    # This allows to scale bus frequencies based on bandwidth calc
+    write /sys/class/devfreq/soc:qcom,cpu-cpu-ddr-bw/governor "bw_hwmon"
+    write /sys/class/devfreq/soc:qcom,cpu-cpu-ddr-bw/polling_interval 50
+    write /sys/class/devfreq/soc:qcom,cpu-cpu-ddr-bw/min_freq 762
+    write /sys/class/devfreq/soc:qcom,cpu-cpu-ddr-bw/bw_hwmon/mbps_zones "2288 3440 4173 5195 5859 7759 10322 11863 13763"
+    write /sys/class/devfreq/soc:qcom,cpu-cpu-ddr-bw/bw_hwmon/sample_ms 4
+    write /sys/class/devfreq/soc:qcom,cpu-cpu-ddr-bw/bw_hwmon/hist_memory 20
+    write /sys/class/devfreq/soc:qcom,cpu-cpu-ddr-bw/bw_hwmon/hyst_length 0
+    write /sys/class/devfreq/soc:qcom,cpu-cpu-ddr-bw/bw_hwmon/decay_rate 90
+    write /sys/class/devfreq/soc:qcom,cpu-cpu-ddr-bw/bw_hwmon/bw_step 190
+    write /sys/class/devfreq/soc:qcom,cpu-cpu-ddr-bw/bw_hwmon/down_thres 80
+    write /sys/class/devfreq/soc:qcom,cpu-cpu-ddr-bw/bw_hwmon/guard_band_mbps 0
+    write /sys/class/devfreq/soc:qcom,cpu-cpu-ddr-bw/bw_hwmon/up_scale 250
+    write /sys/class/devfreq/soc:qcom,cpu-cpu-ddr-bw/bw_hwmon/idle_mbps 1600
+
+    # Enable dynamic memory bus latency control
+    write /sys/class/devfreq/soc:qcom,cpu0-cpu-ddr-lat/governor "mem_latency"
+    write /sys/class/devfreq/soc:qcom,cpu0-cpu-ddr-lat/polling_interval 10
+    write /sys/class/devfreq/soc:qcom,cpu0-cpu-ddr-lat/mem_latency/ratio_ceil 400
+    write /sys/class/devfreq/soc:qcom,cpu4-cpu-ddr-lat/governor "mem_latency"
+    write /sys/class/devfreq/soc:qcom,cpu4-cpu-ddr-lat/polling_interval 10
+    write /sys/class/devfreq/soc:qcom,cpu4-cpu-ddr-lat/mem_latency/ratio_ceil 400
+
+    write /sys/class/devfreq/soc:qcom,cpu4-cpu-ddr-latfloor/governor "compute"
+    write /sys/class/devfreq/soc:qcom,cpu4-cpu-ddr-latfloor/polling_interval 10
