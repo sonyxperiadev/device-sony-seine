@@ -15,6 +15,7 @@
 # Platform path
 PLATFORM_COMMON_PATH := device/sony/seine
 
+TRINKET := sm6125
 SOMC_PLATFORM := seine
 SOMC_KERNEL_VERSION := 4.14
 
