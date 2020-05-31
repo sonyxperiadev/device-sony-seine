@@ -5,7 +5,7 @@ system                                                  /system                 
 product                                                 /product                  ext4    ro,barrier=1,discard                                 wait,slotselect,avb=vbmeta_system,logical,first_stage_mount
 vendor                                                  /vendor                   ext4    ro,barrier=1,discard                                 wait,slotselect,avb,logical,first_stage_mount
 
-/dev/block/bootdevice/by-name/oem          /odm         ext4    ro,barrier=1                                                  wait,recoveryonly,slotselect
+/dev/block/bootdevice/by-name/oem_a        /odm         ext4    ro,barrier=1                                                  wait,recoveryonly
 /dev/block/bootdevice/by-name/userdata     /data        ext4    noatime,nosuid,nodev,barrier=1,data=ordered,noauto_da_alloc,errors=panic wait,check,formattable,fileencryption=ice,quota
 /dev/block/bootdevice/by-name/frp          /persistent  emmc    defaults                                                      defaults
 /dev/block/bootdevice/by-name/dsp_a        /vendor/dsp             ext4    nosuid,nodev,barrier=1,data=ordered,nodelalloc,errors=panic   wait,notrim
