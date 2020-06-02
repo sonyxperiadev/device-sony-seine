@@ -106,8 +106,13 @@ BOARD_VENDORIMAGE_JOURNAL_SIZE := 0
 BOARD_VENDORIMAGE_EXTFS_INODE_COUNT := 4096
 
 BOARD_AVB_ENABLE := true
-TARGET_NO_RECOVERY := true
-BOARD_USES_RECOVERY_AS_BOOT := true
+
+# This target has recovery partitions and bootloader
+# will not set the skip_initramfs cmdline bootparam,
+# so if we turn on recovery as boot, we always end up
+# booting to recovery. Nice!
+TARGET_NO_RECOVERY := false
+BOARD_USES_RECOVERY_AS_BOOT := false
 
 TARGET_DEVICE_NO_FPC := true
 
