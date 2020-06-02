@@ -65,8 +65,9 @@ PRODUCT_PACKAGES += \
 AB_OTA_PARTITIONS += \
     boot \
     system \
-    vendor
-
+    product \
+    vendor \
+    vbmeta_system
 
 # Treble
 # Include vndk/vndk-sp/ll-ndk modules
