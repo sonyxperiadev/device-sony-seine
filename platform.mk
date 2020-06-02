@@ -59,8 +59,8 @@ PRODUCT_PACKAGES += \
     update_engine_client \
     update_engine_sideload \
     update_verifier \
-    bootctrl.sdm660 \
-    bootctrl.sdm660.recovery
+    bootctrl.sm6125 \
+    bootctrl.sm6125.recovery
 
 AB_OTA_PARTITIONS += \
     boot \
