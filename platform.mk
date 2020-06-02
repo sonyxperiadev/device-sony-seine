@@ -74,6 +74,10 @@ AB_OTA_PARTITIONS += \
 PRODUCT_PACKAGES += \
     vndk_package
 
+# Copy the fstab to the ramdisk for new dynamic partitions device design
+PRODUCT_COPY_FILES += \
+    $(SONY_ROOT)/vendor/etc/fstab.seine:$(TARGET_COPY_OUT_RAMDISK)/fstab.$(PRODUCT_DEVICE)
+
 # Audio
 PRODUCT_COPY_FILES += \
     $(SONY_ROOT)/vendor/etc/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml \
