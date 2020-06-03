@@ -124,19 +124,19 @@ PRODUCT_PACKAGES += \
 
 # Audio
 PRODUCT_PACKAGES += \
-    sound_trigger.primary.sdm660 \
-    audio.primary.sdm660
+    sound_trigger.primary.sm6125 \
+    audio.primary.sm6125
 
 # GFX
 PRODUCT_PACKAGES += \
-    copybit.sdm660 \
-    gralloc.sdm660 \
-    hwcomposer.sdm660 \
-    memtrack.sdm660
+    copybit.sm6125 \
+    gralloc.sm6125 \
+    hwcomposer.sm6125 \
+    memtrack.sm6125
 
 # GPS
 PRODUCT_PACKAGES += \
-    gps.sdm660
+    gps.sm6125
 
 # Sensors
 PRODUCT_PACKAGES += \
@@ -145,7 +145,7 @@ PRODUCT_PACKAGES += \
 
 # CAMERA
 PRODUCT_PACKAGES += \
-    camera.sdm660
+    camera.sm6125
 
 # QCOM Bluetooth
 PRODUCT_PACKAGES += \
