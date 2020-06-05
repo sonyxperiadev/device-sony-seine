@@ -111,6 +111,10 @@ BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_PRODUCTIMAGE_JOURNAL_SIZE := 0
 BOARD_PRODUCTIMAGE_EXTFS_INODE_COUNT := 4096
 
+# This platform has a metadata partition: declare this
+# to create a mount point for it
+BOARD_USES_METADATA_PARTITION := true
+
 BOARD_AVB_ENABLE := true
 BOARD_AVB_VBMETA_SYSTEM := system
 BOARD_AVB_VBMETA_SYSTEM_KEY_PATH ?= external/avb/test/data/testkey_rsa2048.pem
