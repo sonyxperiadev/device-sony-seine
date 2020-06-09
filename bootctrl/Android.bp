@@ -16,7 +16,7 @@
 //
 
 cc_library {
-    name: "bootctrl.trinket",
+    name: "bootctrl.sm6125",
     defaults: ["bootctrl_hal_defaults"],
     static_libs: ["libgptutils"],
 }
