@@ -37,9 +37,10 @@ BOARD_RAMDISK_OFFSET     := 0x02000000
 
 BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1
 BOARD_KERNEL_CMDLINE += service_locator.enable=1
+BOARD_KERNEL_CMDLINE += msm_drm.blhack_dsi_display0=dsi_panel_somc_seine_cmd:config0
 
 # Serial console
-#BOARD_KERNEL_CMDLINE += earlycon=msm_serial_dm,0xc170000
+#BOARD_KERNEL_CMDLINE += earlycon=msm_geni_serial,0x4a90000 console=ttyMSM0,115200n8
 
 TARGET_RECOVERY_WIPE := $(PLATFORM_COMMON_PATH)/rootdir/recovery.wipe
 TARGET_RECOVERY_FSTAB ?= $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/fstab.seine
