@@ -152,9 +152,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.qcom.bluetooth.soc=cherokee
 
-# Fluence
+# Audio
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.qc.sdk.audio.fluencetype=fluence
+    vendor.audio.feature.dynamic_ecns.enable=true \
+    vendor.audio.enable.cirrus.speaker=true
 
 # Disable UBWC
 PRODUCT_PROPERTY_OVERRIDES += \
