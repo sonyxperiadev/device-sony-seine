@@ -33,6 +33,9 @@
 /dev/block/platform/soc/4744000\.sdhci/by-name/userdata         u:object_r:userdata_block_device:s0
 /dev/block/bootdevice/by-name/userdata                          u:object_r:userdata_block_device:s0
 
+/dev/block/platform/soc/4744000\.sdhci/by-name/metadata         u:object_r:metadata_block_device:s0
+/dev/block/bootdevice/by-name/metadata                          u:object_r:metadata_block_device:s0
+
 /dev/block/platform/soc/4744000\.sdhci/by-name/boot_[ab]        u:object_r:boot_block_device:s0
 /dev/block/bootdevice/by-name/boot_[ab]                         u:object_r:boot_block_device:s0
 
