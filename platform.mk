@@ -124,7 +124,8 @@ PRODUCT_PACKAGES += \
 # Audio
 PRODUCT_PACKAGES += \
     sound_trigger.primary.sm6125 \
-    audio.primary.sm6125
+    audio.primary.sm6125 \
+    libcirrusspkrprot
 
 # GFX
 PRODUCT_PACKAGES += \
