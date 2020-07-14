@@ -133,7 +133,5 @@ BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 1
 TARGET_NO_RECOVERY := false
 BOARD_USES_RECOVERY_AS_BOOT := false
 
-TARGET_DEVICE_NO_FPC := true
-
 include device/sony/common/CommonConfig.mk
 
