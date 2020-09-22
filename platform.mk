@@ -217,7 +217,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.feature.dynamic_ecns.enable=true \
-    vendor.audio.enable.cirrus.speaker=true
+    vendor.audio.enable.cirrus.speaker=true \
+    vendor.audio.offload.buffer.size.kb=32
 
 # Disable UBWC
 PRODUCT_PROPERTY_OVERRIDES += \
