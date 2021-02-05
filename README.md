@@ -1,11 +1,16 @@
+Seine platform
+==============
 Copyright (C) Sony Mobile Communications 2019
-=============================================
+---------------------------------------------
 
-This is the Android device configuration for seine platform.
+Android device configuration for the seine platform (**SM6125**).
 
-seine devices:
+### Supported devices
 
-    Xperia 10 II ....................... PDX201
+| Device | Codename |
+|-|:-:|
+| Xperia 10 II | [pdx201](https://github.com/sonyxperiadev/device-sony-pdx201) |
 
-Build instructions
+### Build instructions
+
 https://developer.sony.com/develop/open-devices/guides/aosp-build-instructions/
