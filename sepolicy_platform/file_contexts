@@ -5,14 +5,11 @@
 
 /dev/block/mmcblk0                                              u:object_r:root_block_device:s0
 
-/dev/block/platform/soc/4744000\.sdhci/by-name/modemst1         u:object_r:modem_block_device:s0
-/dev/block/bootdevice/by-name/modemst1                          u:object_r:modem_block_device:s0
-
-/dev/block/platform/soc/4744000\.sdhci/by-name/modemst2         u:object_r:modem_block_device:s0
-/dev/block/bootdevice/by-name/modemst2                          u:object_r:modem_block_device:s0
-
 /dev/block/platform/soc/4744000\.sdhci/by-name/modem_[ab]       u:object_r:modem_block_device:s0
 /dev/block/bootdevice/by-name/modem_[ab]                        u:object_r:modem_block_device:s0
+
+/dev/block/platform/soc/4744000\.sdhci/by-name/modemst[12]      u:object_r:modem_block_device:s0
+/dev/block/bootdevice/by-name/modemst[12]                       u:object_r:modem_block_device:s0
 
 /dev/block/platform/soc/4744000\.sdhci/by-name/fsg              u:object_r:modem_block_device:s0
 /dev/block/bootdevice/by-name/fsg                               u:object_r:modem_block_device:s0
@@ -51,14 +48,8 @@
 /dev/block/platform/soc/4744000\.sdhci/by-name/rdimage_[ab]     u:object_r:ramdump_block_device:s0
 /dev/block/bootdevice/by-name/rdimage_[ab]                      u:object_r:ramdump_block_device:s0
 
-/dev/block/platform/soc/4744000\.sdhci/by-name/system_[ab]      u:object_r:system_block_device:s0
-/dev/block/bootdevice/by-name/system_[ab]                       u:object_r:system_block_device:s0
-
 /dev/block/platform/soc/4744000\.sdhci/by-name/oem_[ab]         u:object_r:system_block_device:s0
 /dev/block/bootdevice/by-name/oem_[ab]                          u:object_r:system_block_device:s0
-
-/dev/block/platform/soc/4744000\.sdhci/by-name/vendor_[ab]      u:object_r:system_block_device:s0
-/dev/block/bootdevice/by-name/vendor_[ab]                       u:object_r:system_block_device:s0
 
 /dev/block/platform/soc/4744000\.sdhci/by-name/abl_[ab]         u:object_r:ab_block_device:s0
 /dev/block/bootdevice/by-name/abl_[ab]                          u:object_r:ab_block_device:s0
