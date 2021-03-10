@@ -94,7 +94,7 @@ TARGET_KEYMASTER_V4 := true
 TARGET_NEEDS_AUDIOPD := true
 TARGET_NEEDS_ADSP_SENSORS_PDR := true
 
-# VPP
+# Qualcomm VPP (Only relevant to proprietary build)
 TARGET_DISABLE_QTI_VPP := true
 
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
