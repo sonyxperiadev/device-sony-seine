@@ -238,10 +238,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.max_frame_buffer_acquired_buffers=2
 
-# Display HACK: Use GPU composition only
-PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.display.primary_mixer_stages=1
-
 # USB controller setup
 PRODUCT_PROPERTY_OVERRIDES += \
     sys.usb.controller=4e00000.dwc3 \
