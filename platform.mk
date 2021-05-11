@@ -84,9 +84,6 @@ TARGET_USES_SDE := true
 DEVICE_PACKAGE_OVERLAYS += \
     $(PLATFORM_COMMON_PATH)/overlay
 
-# Graphics allocator/mapper v3
-TARGET_HARDWARE_GRAPHICS_V3 := true
-
 # Keymaster 4
 TARGET_KEYMASTER_V4 := true
 
