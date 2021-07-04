@@ -226,9 +226,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.enable.cirrus.speaker=true \
     vendor.audio.offload.buffer.size.kb=32
 
-# Disable UBWC
+# Enable UBWC
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.gralloc.disable_ubwc=1
+    vendor.gralloc.disable_ubwc=0
 
 # SurfaceFlinger
 # Keep in sync with NUM_FRAMEBUFFER_SURFACE_BUFFERS
