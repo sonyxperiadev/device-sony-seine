@@ -75,7 +75,7 @@ TARGET_USES_SSC := true
 TARGET_HAS_HDR_DISPLAY := true
 TARGET_RECOVERY_PIXEL_FORMAT := BGRA_8888
 TARGET_USES_DRM_PP := true
-NUM_FRAMEBUFFER_SURFACE_BUFFERS := 2
+NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 
 # Lights HAL: Backlight
 TARGET_USES_SDE := true
@@ -233,7 +233,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # SurfaceFlinger
 # Keep in sync with NUM_FRAMEBUFFER_SURFACE_BUFFERS
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.surface_flinger.max_frame_buffer_acquired_buffers=2
+    ro.surface_flinger.max_frame_buffer_acquired_buffers=3
 
 # USB controller setup
 PRODUCT_PROPERTY_OVERRIDES += \
