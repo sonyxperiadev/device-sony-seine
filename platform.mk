@@ -94,6 +94,10 @@ TARGET_NEEDS_ADSP_SENSORS_PDR := true
 # VPP
 TARGET_DISABLE_QTI_VPP := true
 
+# Force building a boot image.
+# This needs to be set explicitly since Android R
+PRODUCT_BUILD_BOOT_IMAGE := true
+
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # A/B support
