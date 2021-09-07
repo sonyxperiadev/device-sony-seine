@@ -87,9 +87,6 @@ DEVICE_PACKAGE_OVERLAYS += \
 # Keymaster 4
 TARGET_KEYMASTER_V4 := true
 
-# DSP
-TARGET_NEEDS_ADSP_SENSORS_PDR := true
-
 # VPP
 TARGET_DISABLE_QTI_VPP := true
 
@@ -209,6 +206,10 @@ PRODUCT_PACKAGES += \
 # GPS
 PRODUCT_PACKAGES += \
     gps.sm6125
+
+# Sensors init
+PRODUCT_PACKAGES += \
+    adsp-sensorspdr.rc
 
 # Sensors
 PRODUCT_PACKAGES += \
