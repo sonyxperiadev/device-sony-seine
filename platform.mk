@@ -187,6 +187,11 @@ PRODUCT_PACKAGES += \
     init.seine.pwr \
     ueventd
 
+# CDSP init
+PRODUCT_PACKAGES += \
+    init.qcom.cdspstart.sh \
+    cdsprpcd.rc
+
 # Audio init
 PRODUCT_PACKAGES += \
     audiopd.rc
