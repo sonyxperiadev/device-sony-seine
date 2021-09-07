@@ -88,7 +88,6 @@ DEVICE_PACKAGE_OVERLAYS += \
 TARGET_KEYMASTER_V4 := true
 
 # DSP
-TARGET_NEEDS_AUDIOPD := true
 TARGET_NEEDS_ADSP_SENSORS_PDR := true
 
 # VPP
@@ -189,6 +188,10 @@ PRODUCT_PACKAGES += \
     init.seine \
     init.seine.pwr \
     ueventd
+
+# Audio init
+PRODUCT_PACKAGES += \
+    audiopd.rc
 
 # Audio
 PRODUCT_PACKAGES += \
