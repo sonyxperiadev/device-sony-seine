@@ -27,7 +27,7 @@ BOARD_RAMDISK_OFFSET     := 0x02000000
 
 BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1
 BOARD_KERNEL_CMDLINE += service_locator.enable=1
-BOARD_KERNEL_CMDLINE += msm_drm.blhack_dsi_display0=dsi_panel_somc_seine_cmd:config0
+BOARD_KERNEL_CMDLINE += msm_drm.blhack_dsi_display0=somc,6_panel:config0
 
 # Serial console
 #BOARD_KERNEL_CMDLINE += earlycon=msm_geni_serial,0x4a90000
